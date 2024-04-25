@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Q&A Bot</title>
+</head>
+
+<body>
+    <h1>{{ greeting }}</h1>
+    <form action="/" method="post">
+        <input type="text" name="user_input" placeholder="Ask a question...">
+        <button type="submit">Send</button>
+    </form>
+    {% if bot_response %}
+    <p>Bot: {{ bot_response }}</p>
+    {% endif %}
+    <h2>Predefined Topics</h2>
+    <ul>
+        {% for topic in topics %}
+        <li><a href="#" onclick="document.getElementById('user_input').value='{{ topic }}'; document.querySelector('form').submit();">{{ topic }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
